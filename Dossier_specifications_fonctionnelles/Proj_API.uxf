@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>50</y>
+      <w>280</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Console
+--
++id_Console : int
++nom_Console : String
++fabricant_Console : String
++type_Console : String
+--
++Console()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>90</y>
+      <w>210</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Donnees_Ventes
+--
++id_donnee_ventes : int
++annee_ventes : int
++nbre_ventes : int
++revenus_gen : float
++nomPays : String
+--
++Donnees_Ventes ()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>90</y>
+      <w>230</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1
+avoir &gt;</panel_attributes>
+    <additional_attributes>210.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
