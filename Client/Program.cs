@@ -1,6 +1,12 @@
+using Client.API;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddRazorPages().AddNewtonsoftJson();
+
+builder.Services.AddHttpClient<IConsoleClient, ConsoleClient>(client => 
+        client.BaseAddress = new Uri(builder.Configuration.GetSection("ConsolesAPI").Value));
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
@@ -9,6 +15,7 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
+    //app.UseHsts();
 }
 app.UseStaticFiles();
 

@@ -16,6 +16,6 @@ namespace Projet_API.Data
 
         public DbSet<Projet_API.Models.Vente> Vente { get; set; } = default!;
         public DbSet<Projet_API.Models.GameConsole> GameConsole { get; set; } = default!;
-        
+
     }
 }
