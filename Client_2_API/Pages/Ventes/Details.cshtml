@@ -1,0 +1,43 @@
+﻿@page
+@model Client_2_API.Pages.Ventes.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Vente</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vente.Annee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vente.Annee)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vente.Nbr_vente)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vente.Nbr_vente)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vente.Revenu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vente.Revenu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vente.Pays)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vente.Pays)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Vente.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

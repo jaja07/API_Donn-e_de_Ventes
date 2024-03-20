@@ -16,6 +16,7 @@ namespace Projet_API.Data
 
         public DbSet<Projet_API.Models.Vente> Vente { get; set; } = default!;
         public DbSet<Projet_API.Models.GameConsole> GameConsole { get; set; } = default!;
-
+        /*protected override void OnConfiguring(DbContextOptionsBuilder options) =>
+        options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Projet_APIContext-fd8f4e47-0139-40c2-b4de-fb71a44f86c9;Trusted_Connection=True;MultipleActiveResultSets=true");*/
     }
 }
