@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Projet2_API.Data;
-using Projet2_API.Model;
+using Projet3_API.Data;
+using Projet3_API.Models;
 
-namespace Projet2_API.Controllers
+namespace Projet3_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class VentesController : ControllerBase
     {
-        private readonly Projet2_APIContext _context;
+        private readonly Projet3_APIContext _context;
 
-        public VentesController(Projet2_APIContext context)
+        public VentesController(Projet3_APIContext context)
         {
             _context = context;
         }
@@ -26,6 +26,13 @@ namespace Projet2_API.Controllers
         public async Task<ActionResult<IEnumerable<Vente>>> GetVente()
         {
             return await _context.Vente.ToListAsync();
+        }
+
+        // GET: api/Ventes/Consoles
+        [HttpGet("Consoles")]
+        public async Task<ActionResult<IEnumerable<GameConsole>>> GetConsoles()
+        {
+            return await _context.GameConsole.ToListAsync();
         }
 
         // GET: api/Ventes/5
@@ -78,25 +85,26 @@ namespace Projet2_API.Controllers
         [HttpPost]
         public async Task<ActionResult<Vente>> PostVente(Vente vente)
         {
+            if (vente.ConsoleId == null)
+            {
+                return BadRequest("Console ID is required.");
+            }
+
+            if (vente.Annee == 0)
+            {
+                return BadRequest("Year is required.");
+            }
+
+            var console = await _context.GameConsole.FindAsync(vente.ConsoleId);
+            if (console == null)
+            {
+                return NotFound("Console not found.");
+            }
             _context.Vente.Add(vente);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetVente", new { id = vente.Id }, vente);
         }
-
-        /*public async Task<ActionResult<Vente>> PostVente(Vente vente, int id)
-        {
-            Console.WriteLine(id);
-            //if(!VenteExists(id))
-            //{
-                vente.Console.Id = id;
-                _context.Vente.Add(vente);
-                await _context.SaveChangesAsync();
-            //}
-            
-
-            return CreatedAtAction("GetVente", new { id = vente.Id }, vente);
-        }*/
 
         // DELETE: api/Ventes/5
         [HttpDelete("{id}")]

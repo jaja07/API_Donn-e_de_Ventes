@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Projet2_API.Data;
-using Projet2_API.Model;
+using Projet3_API.Data;
+using Projet3_API.Models;
 
-namespace Projet2_API.Controllers
+namespace Projet3_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class GameConsolesController : ControllerBase
     {
-        private readonly Projet2_APIContext _context;
+        private readonly Projet3_APIContext _context;
 
-        public GameConsolesController(Projet2_APIContext context)
+        public GameConsolesController(Projet3_APIContext context)
         {
             _context = context;
         }
@@ -78,6 +78,12 @@ namespace Projet2_API.Controllers
         [HttpPost]
         public async Task<ActionResult<GameConsole>> PostGameConsole(GameConsole gameConsole)
         {
+            // Vérifier si une console avec le même nom existe déjà dans la base de données
+            var existingConsole = await _context.GameConsole.FirstOrDefaultAsync(c => c.Nom == gameConsole.Nom);
+            if (existingConsole != null)
+            {
+                return Conflict("Une console avec le même nom existe déjà.");
+            }
             _context.GameConsole.Add(gameConsole);
             await _context.SaveChangesAsync();
 

@@ -7,7 +7,7 @@
         public int Nbr_vente { get; set; }
         public double Revenu { get; set; }
         public required string Pays { get; set; }
-        public GameConsole Console { get; set; }
-        //public required int ConsoleId { get; set; }
+        //public GameConsole Console { get; set; }
+        public int? ConsoleId { get; set; }
     }
 }
