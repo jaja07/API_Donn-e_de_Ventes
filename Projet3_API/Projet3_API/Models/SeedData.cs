@@ -13,7 +13,7 @@ namespace Projet3_API.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<Projet3_APIContext>>()))
             {
-                context.Database.EnsureDeleted();
+                //context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
 
                 // Look for any movies.

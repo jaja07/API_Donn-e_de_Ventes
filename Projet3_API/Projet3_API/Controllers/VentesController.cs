@@ -90,16 +90,17 @@ namespace Projet3_API.Controllers
                 return BadRequest("Console ID is required.");
             }
 
-            if (vente.Annee == 0)
+            /*if (vente.Annee == 0)
             {
                 return BadRequest("Year is required.");
-            }
+            }*/
 
             var console = await _context.GameConsole.FindAsync(vente.ConsoleId);
             if (console == null)
             {
                 return NotFound("Console not found.");
             }
+            vente.ConsoleId = console.Id;
             _context.Vente.Add(vente);
             await _context.SaveChangesAsync();
 
