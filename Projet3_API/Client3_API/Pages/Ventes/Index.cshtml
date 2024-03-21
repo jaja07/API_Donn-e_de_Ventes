@@ -14,47 +14,48 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Vente[0].Annee)
+                @Html.DisplayNameFor(model => model.VenteWithConsoleNom[0].vente.Annee)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Vente[0].Nbr_vente)
+                @Html.DisplayNameFor(model => model.VenteWithConsoleNom[0].vente.Nbr_vente)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Vente[0].Revenu)
+                @Html.DisplayNameFor(model => model.VenteWithConsoleNom[0].vente.Revenu)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Vente[0].Pays)
+                @Html.DisplayNameFor(model => model.VenteWithConsoleNom[0].vente.Pays)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Vente[0].Console)
+                Console
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Vente) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Annee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nbr_vente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Revenu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pays)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ConsoleId)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.VenteWithConsoleNom)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vente.Annee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vente.Nbr_vente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vente.Revenu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vente.Pays)
+                </td>
+                <td>
+                    @item.ConsoleNom
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.vente.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.vente.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.vente.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

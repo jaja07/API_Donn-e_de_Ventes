@@ -18,13 +18,23 @@ namespace Client3_API.Pages.Ventes
             _venteClient = context;
         }
 
-        public IList<Vente> Vente { get;set; } = default!;
+        public IList<(Vente vente, string ConsoleNom)> VenteWithConsoleNom { get; set; } = default!;
+        //public IList<Vente> Vente { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
+
+            var ventes = await _venteClient.VentesAllAsync();
+            VenteWithConsoleNom = new List<(Vente, string)>();
+
+            foreach (var vente in ventes)
+            {
+                var console = await _venteClient.GameConsolesGETAsync(vente.ConsoleId ?? 0);
+                VenteWithConsoleNom.Add((vente, console?.Nom ?? "Unknown"));
+            }
             /* Vente = await _context.Vente
                  .Include(v => v.Console).ToListAsync();*/
-            Vente = (await _venteClient.VentesAllAsync()).ToList();
+            //Vente = (await _venteClient.VentesAllAsync()).ToList();
 
 
         }
