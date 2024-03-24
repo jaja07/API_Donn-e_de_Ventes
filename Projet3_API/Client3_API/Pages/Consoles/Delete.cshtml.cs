@@ -46,6 +46,7 @@ namespace Client3_API.Pages.Consoles
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
+            //var ventes = await _consoleClient.VentesAllAsync();
             if (id == null)
             {
                 return NotFound();
@@ -53,6 +54,20 @@ namespace Client3_API.Pages.Consoles
             try
             {
                 await _consoleClient.GameConsolesDELETEAsync(id.Value);
+                //await _consoleClient.VentesDELETEAsync(id.Value);
+
+                
+                //VenteWithConsoleNom = new List<(Vente, string)>();
+
+                /*foreach (var vente in ventes)
+                {
+                    if(vente.ConsoleId == id.Value)
+                    {
+                        await _consoleClient.VentesDELETEAsync(vente.Id);
+                    }
+                    //var console = await _venteClient.GameConsolesGETAsync(vente.ConsoleId ?? 0);
+                    
+                }*/
             }
             catch (Exception ex)
             {
@@ -67,6 +82,7 @@ namespace Client3_API.Pages.Consoles
              }*/
 
             return RedirectToPage("./Index");
+            
         }
     }
 }

@@ -29,8 +29,20 @@ namespace Client3_API.Pages.Ventes
 
             foreach (var vente in ventes)
             {
-                var console = await _venteClient.GameConsolesGETAsync(vente.ConsoleId ?? 0);
-                VenteWithConsoleNom.Add((vente, console?.Nom ?? "Unknown"));
+                /*var console = await _venteClient.GameConsolesGETAsync(vente.ConsoleId ?? 0);
+                VenteWithConsoleNom.Add((vente, console?.Nom ?? "Unknown"));*/
+                try
+                {
+                    var console = await _venteClient.GameConsolesGETAsync(vente.ConsoleId ?? 0);
+                    string consoleNom = console != null ? console.Nom : "Unknown";
+                    VenteWithConsoleNom.Add((vente, consoleNom));
+                }
+                catch (Exception ex)
+                {
+                    // Gérer l'erreur ici, par exemple, afficher dans les logs
+                    Console.WriteLine($"Une erreur s'est produite lors de la récupération de la console pour la vente {vente.Id}: {ex.Message}");
+                    VenteWithConsoleNom.Add((vente, "Unknown"));
+                }
             }
             /* Vente = await _context.Vente
                  .Include(v => v.Console).ToListAsync();*/
