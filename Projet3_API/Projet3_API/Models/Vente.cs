@@ -20,6 +20,8 @@ namespace Projet3_API.Models
         
         public int? ConsoleId { get; set; }
 
+        //public GameConsole GameConsole { get; set; };
+
        
 
     }

@@ -32,6 +32,11 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.GameConsole.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    
+    <a class="btn btn-info" asp-page="./Edit" asp-route-id="@Model.GameConsole.Id" title="Modifier"><i class="fa-solid fa-pen"></i></a>
+    </br>
+    <a asp-page="./Index" class="back-to-list-link" style="color: blue; text-decoration: none;">
+        <i class="fas fa-arrow-left"></i>
+        Back to List
+    </a>
 </div>

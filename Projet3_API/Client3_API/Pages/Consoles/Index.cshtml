@@ -5,13 +5,15 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+
+<h2 style="font-family: 'Bodoni MTsplay',serif; font-size: 40px; font-weight:bold; font-style:italic;">Consoles</h2>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a class="btn custom-button" style=" background-color:  #333; color: white;" asp-page="Create" title="Creer une Console"><i class="fas fa-plus"></i></a>
 </p>
-<table class="table">
-    <thead>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.GameConsole[0].Nom)
@@ -38,11 +40,12 @@
                 @Html.DisplayFor(modelItem => item.Type)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        <a class="btn btn-info" asp-page="./Edit" asp-route-id="@item.Id" title="Modifier" ><i class="fa-solid fa-pen"></i></a> |
+                        <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.Id" title="Détails" ><i class="fa-regular fa-eye"></i></a> |
+                        <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.Id" title="Supprimer" style="color:black"><i class="fas fa-trash-alt"></i></a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</div>

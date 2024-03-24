@@ -40,14 +40,19 @@
                 <span asp-validation-for="Vente.ConsoleId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+
+                <input type="submit" value="Save" class="btn custom-button" style="background-color: #8B0000; color: white;" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index" class="back-to-list-link" style="color: blue; text-decoration: none;">
+        <i class="fas fa-arrow-left"></i>
+        Back to List
+    </a>
+    
 </div>
 
 @section Scripts {

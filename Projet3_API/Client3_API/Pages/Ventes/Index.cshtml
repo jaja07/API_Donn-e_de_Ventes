@@ -5,10 +5,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+
+<h2 style="font-family: 'Bodoni MTsplay',serif; font-size: 40px; font-weight:bold; font-style:italic;">Consoles sales</h2>
+
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a class="btn custom-button" style=" background-color:  #333; color: white;" asp-page="Create" title="Ajouter une vente de console"><i class="fas fa-plus"></i></a>
 </p>
 <table class="table">
     <thead>
@@ -51,9 +53,9 @@
                     @item.ConsoleNom
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.vente.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.vente.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.vente.Id">Delete</a>
+                    <a class="btn btn-info" asp-page="./Edit" asp-route-id="@item.vente.Id" title="Modifier"><i class="fa-solid fa-pen"></i></a> |
+                    <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.vente.Id" title="Détails"><i class="fa-regular fa-eye"></i></a> |
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.vente.Id" title="Supprimer" style="color:black"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         }

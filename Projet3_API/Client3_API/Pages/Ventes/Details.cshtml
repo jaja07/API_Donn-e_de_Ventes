@@ -44,6 +44,8 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Vente.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a class="btn btn-info" asp-page="./Edit" asp-route-id="@Model.Vente.Id" title="Modifier"><i class="fa-solid fa-pen"></i></a> |
+    <a asp-page="./Index" class="back-to-list-link" style="color: blue; text-decoration: none;"> <i class="fas fa-arrow-left"></i>Back to List</a>
+    </br>
+    
 </div>
