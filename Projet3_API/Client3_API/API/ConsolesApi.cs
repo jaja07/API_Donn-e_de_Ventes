@@ -136,9 +136,9 @@ namespace Client3_API.API
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.0.3.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ConsleClient : IConsleClient
     {
-        #pragma warning disable 8618
-        //private string _baseUrl = "https://projet3api.azurewebsites.net";
-        private string _baseUrl = "http://localhost:5259";
+#pragma warning disable 8618
+        private string _baseUrl = "https://projet3api2.azurewebsites.net";
+        //private string _baseUrl = "http://localhost:5259";
 #pragma warning restore 8618
 
         private System.Net.Http.HttpClient _httpClient;
