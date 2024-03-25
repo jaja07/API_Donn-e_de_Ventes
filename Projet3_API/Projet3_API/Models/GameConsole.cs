@@ -14,15 +14,6 @@ namespace Projet3_API.Models
 
         [Required(ErrorMessage = "Le type de la console est requis.")]
         public required string Type { get; set; }
-        //public List<Vente> Ventes { get; set; }
-
-        //Constructeur
-        public GameConsole(string nom, string fabricant, string type)
-        {
-            this.Nom = nom;
-            this.Fabricant = fabricant;
-            this.Type = type;
-            //Ventes = new List<Vente>();
-        }
+        
     }
 }

@@ -137,8 +137,9 @@ namespace Client3_API.API
     public partial class ConsleClient : IConsleClient
     {
         #pragma warning disable 8618
+        //private string _baseUrl = "https://projet3api.azurewebsites.net";
         private string _baseUrl = "http://localhost:5259";
-        #pragma warning restore 8618
+#pragma warning restore 8618
 
         private System.Net.Http.HttpClient _httpClient;
         private static System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
